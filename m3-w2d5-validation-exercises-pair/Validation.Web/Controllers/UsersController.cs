@@ -10,28 +10,43 @@ namespace Validation.Web.Controllers
     public class UsersController : Controller
     {
         // GET: User
-        public ActionResult Index()
-        {
-            return View("Index");
-        }
-
+        
         // Add the following Controller Actions
 
         // GET: User/Register
         // Return the empty registration view
-
+        public ActionResult NewUser()
+        {
+            return View("NewUser");
+        }
         // POST: User/Register
         // Validate the model and redirect to confirmation (if successful) or return the 
-        // registration view (if validation fails)        
+        // registration view (if validation fails) 
+        [HttpPost]
+        public ActionResult RegistrationConfirmation(RegistrationViewModel newUser)
+        {
+            
+        } 
 
         // GET: User/Login
         // Return the empty login view
-
+        public ActionResult Index()
+        {
+            return View("Index");
+        }
         // POST: User/Login  
-        // Validate the model and redirect to login (if successful) or return the 
+        // Validate the model and redirect to confirmation (if successful) or return the 
         // login view (if validation fails)
+        [HttpPost]
+        public ActionResult LoginConfirmation(LoginViewModel login)
+        {
 
+        }
         // GET: User/Confirmation
         // Return the confirmation view
+        public RegistrationViewModel NewUser()
+        {
+
+        }
     }
 }
