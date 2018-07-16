@@ -23,7 +23,7 @@ namespace Validation.Web.Controllers
         // Validate the model and redirect to confirmation (if successful) or return the 
         // registration view (if validation fails) 
         [HttpPost]
-        public ActionResult RegistrationConfirmation(RegistrationViewModel newUser)
+        public ActionResult RegistrationConfirmation()
         {
             
         } 
