@@ -30,6 +30,7 @@ namespace Validation.Web.Models
         public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Passwords must match")]
+        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
         [Required]

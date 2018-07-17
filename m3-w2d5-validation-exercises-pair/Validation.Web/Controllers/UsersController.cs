@@ -10,7 +10,7 @@ namespace Validation.Web.Controllers
     public class UsersController : Controller
     {
         // GET: User
-        
+
         // Add the following Controller Actions
 
         // GET: User/Register
@@ -23,11 +23,21 @@ namespace Validation.Web.Controllers
         // Validate the model and redirect to confirmation (if successful) or return the 
         // registration view (if validation fails) 
         [HttpPost]
+        public ActionResult RegistrationConfirmation(RegistrationViewModel newUser)
+        {
+            // Let's validate the model before proceeding
+            if (!ModelState.IsValid)
+            {
+                return View("NewUser", newUser);
+            }
+
+            return RedirectToAction("RegistrationConfirmation");
+        }
         public ActionResult RegistrationConfirmation()
         {
-            
-        } 
-
+            return View();
+        }
+        
         // GET: User/Login
         // Return the empty login view
         public ActionResult Index()
@@ -40,13 +50,20 @@ namespace Validation.Web.Controllers
         [HttpPost]
         public ActionResult LoginConfirmation(LoginViewModel login)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Index");
+            }
 
+            return RedirectToAction("LoginConfirmation");
         }
-        // GET: User/Confirmation
-        // Return the confirmation view
-        public RegistrationViewModel NewUser()
+
+        public ActionResult LoginConfirmation()
         {
-
+            return View();
         }
+        //// GET: User/Confirmation
+        //// Return the confirmation view
+        
     }
 }
